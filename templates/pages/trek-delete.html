@@ -1,0 +1,15 @@
+{% extends '_base.html' %}
+{% load static %}
+
+{% block content %}
+
+<h1>Delete a Campsite</h1>
+
+<form action="" method="POST">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <p>Do you really want to delete "{{ campsite.title }}"?</p>
+  <input type="submit" value="OK">
+</form>
+
+{% endblock content %}

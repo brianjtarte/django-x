@@ -1,11 +1,31 @@
 {% extends '_base.html' %}
-{% load static %}
-
-{% block title %}Home page{% endblock title %}
+{% load crispy_forms_tags %}
+{% load socialaccount %}
 
 {% block content %}
-<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-  <img src="{% static 'images/logo.png' %}" class="img-fluid" alt="DjangoX logo"/>
-  <p class="lead">A Django starter project with batteries.</p>
+
+<div class="container" style="text-align: center; padding-top: 10%;">
+    <h1>Patagonia Trip Planner</h1>
+
+    <br /><br />
+
+  {% if user.is_authenticated %}
+    <h3>Welcome {{ user.username }} !!!</h3>
+    <br /><br />
+
+  <h2>Details about {{ trek.title }}</h2>
+  <h2>Backpacker: {{ trek.backpacker }}</h2>
+  <h2>Total Distance Hiked: {{ trek.distance }}</h2>
+  <p>{{ trek.description }}</p>
+
+
+    <a href="{% url 'create_trek' %}" class="btn btn-primary">Add a Campsite</a>
+      <br>
+          <a href="{% url 'account_logout' %}" class="btn btn-danger">Logout</a>
+  {% else %}
+      <h2>Please Login or Signup Above</h2>
+  {% endif %}
 </div>
+
 {% endblock content %}
+

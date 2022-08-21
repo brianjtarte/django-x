@@ -1,0 +1,11 @@
+{% extends '_base.html' %}
+
+{% block content %}
+<ul>
+  {% for trek in object_list %}
+        <li>
+            <a href="{% url 'detail_trek' trek.pk %}">{{ trek.title }}</a>
+        </li>
+  {% endfor %}
+</ul>
+{%  endblock content %}

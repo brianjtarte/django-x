@@ -1,0 +1,14 @@
+{% extends '_base.html' %}
+
+{% block content %}
+
+  <h1>Add a Campsite</h1>
+    <p>If you are unsure which sites you'd like to add, please visit<a href="https://stingynomads.com/torres-del-paine-campsites/">Stingy Nomads</a> to read about the different sites!</p>
+
+  <form action="" method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="SAVE">
+  </form>
+
+{% endblock content %}
